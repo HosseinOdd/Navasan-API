@@ -59,7 +59,7 @@ pip install -r requirements.txt
 Simply run the script:
 
 ```bash
-python app.py
+python src/app.py
 ```
 
 ✅ The script will:
