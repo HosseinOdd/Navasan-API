@@ -2,9 +2,8 @@ name: Update Currency and Gold Data
 
 on:
   schedule:
-    # هر 5 دقیقه یکبار اجرا می‌شود
     - cron: '*/5 * * * *'
-  workflow_dispatch:  # امکان اجرای دستی
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -46,5 +45,5 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/
-          git commit -m "🤖 Auto-update: Currency and Gold data - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M:%S UTC')"
           git push
