@@ -4,7 +4,7 @@ A Python script that scrapes the latest **currency** and **gold** rates from [Na
 
 ## 🤖 Automated Updates
 
-This repository uses **GitHub Actions** to automatically fetch and update currency and gold data **every 5 minutes** for free! The data is always fresh and up-to-date.
+This repository uses **GitHub Actions** to automatically fetch and update currency and gold data **every 10 minutes** for free! The data is always fresh and up-to-date.
 
 📊 **Live Data Access:**
 - [Fiat Currency Data (JSON)](./data/fiat.json)
