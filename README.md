@@ -2,6 +2,14 @@
 
 A Python script that scrapes the latest **currency** and **gold** rates from [Navasan.net](https://www.navasan.net) using **Selenium** and **Requests**.
 
+## 🤖 Automated Updates
+
+This repository uses **GitHub Actions** to automatically fetch and update currency and gold data **every 5 minutes** for free! The data is always fresh and up-to-date.
+
+📊 **Live Data Access:**
+- [Fiat Currency Data (JSON)](./data/fiat.json)
+- [Gold Rates Data (JSON)](./data/gold.json)
+
 ## 🚀 Features
 
 - Headless Chrome browser using Selenium
@@ -11,11 +19,15 @@ A Python script that scrapes the latest **currency** and **gold** rates from [Na
   - 🪙 Fiat currency rates (`last_currencies.php`)
   - 🪙 Gold rates (`gold_rates.php`)
 - Saves data as JSON in the `/data` directory
+- 🔄 Auto-updates every 5 minutes via GitHub Actions
 
 ## 📂 Project Structure
 
 ```
 .
+├── .github/
+│   └── workflows/
+│       └── update-data.yml  # GitHub Actions workflow
 ├── data/
 │   ├── fiat.json       # Latest fiat currency data
 │   └── gold.json       # Latest gold rate data
