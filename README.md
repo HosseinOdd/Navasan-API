@@ -19,7 +19,7 @@ This repository uses **GitHub Actions** to automatically fetch and update curren
   - 🪙 Fiat currency rates (`last_currencies.php`)
   - 🪙 Gold rates (`gold_rates.php`)
 - Saves data as JSON in the `/data` directory
-- 🔄 Auto-updates every 5 minutes via GitHub Actions
+- 🔄 Auto-updates every 10 minutes via GitHub Actions
 
 ## 📂 Project Structure
 
