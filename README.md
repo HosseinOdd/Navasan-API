@@ -11,8 +11,8 @@ The project uses **Selenium** and **HTTP requests** to securely retrieve data an
 Data is refreshed **every 10 minutes** using GitHub Actions, without requiring any paid service.
 
 **Live JSON data:**
-- Fiat currencies: `data/fiat.json`
-- Gold and coin rates: `data/gold.json`
+- Fiat currencies: [`data/fiat.json`](./data/fiat.json)
+- Gold and coin rates: [`data/gold.json`](./data/gold.json)
 
 ---
 
