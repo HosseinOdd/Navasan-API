@@ -1,94 +1,99 @@
-# 💰 Navasan Data Scraper
+# Navasan Data Scraper
 
-A Python script that scrapes the latest **currency** and **gold** rates from [Navasan.net](https://www.navasan.net) using **Selenium** and **Requests**.
+A lightweight Python tool for fetching the latest **currency** and **gold** rates from [Navasan.net](https://www.navasan.net).
 
-## 🤖 Automated Updates
+The project uses **Selenium** and **HTTP requests** to securely retrieve data and keeps it automatically updated via **GitHub Actions**.
 
-This repository uses **GitHub Actions** to automatically fetch and update currency and gold data **every 10 minutes** for free! The data is always fresh and up-to-date.
+---
 
-📊 **Live Data Access:**
-- [Fiat Currency Data (JSON)](./data/fiat.json)
-- [Gold Rates Data (JSON)](./data/gold.json)
+## Automated Updates
 
-## 🚀 Features
+Data is refreshed **every 10 minutes** using GitHub Actions, without requiring any paid service.
 
-- Headless Chrome browser using Selenium
-- Extracts `PHPSESSID` cookie for secure access
-- Generates CSRF token dynamically
+**Live JSON data:**
+- Fiat currencies: `data/fiat.json`
+- Gold and coin rates: `data/gold.json`
+
+---
+
+## Features
+
+- Headless Chrome automation with Selenium  
+- Secure session handling via `PHPSESSID`
+- Dynamic CSRF token generation
 - Fetches:
-  - 🪙 Fiat currency rates (`last_currencies.php`)
-  - 🪙 Gold rates (`gold_rates.php`)
-- Saves data as JSON in the `/data` directory
-- 🔄 Auto-updates every 10 minutes via GitHub Actions
+  - Fiat currency rates
+  - Gold and coin prices
+- Stores results as structured JSON
+- Fully automated updates via GitHub Actions
 
-## 📂 Project Structure
+---
+
+## Project Structure
 
 ```
 .
 ├── .github/
 │   └── workflows/
-│       └── update-data.yml  # GitHub Actions workflow
+│       └── update-data.yml
 ├── data/
-│   ├── fiat.json       # Latest fiat currency data
-│   └── gold.json       # Latest gold rate data
-├── src
-│   └── app.py          # Main script file
-├── requirements.txt    # requirements file
+│   ├── fiat.json
+│   └── gold.json
+├── src/
+│   └── app.py
+├── requirements.txt
 ```
 
-## 📦 Installation
+---
 
-Clone this repository:
+## Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/HosseinOdd/Navasan-API.git
 cd Navasan-API
 ```
 
-## ⚙️ Requirements
+---
+
+## Requirements
 
 - Python 3.7+
 - Google Chrome
-- ChromeDriver (matching your Chrome version)
+- ChromeDriver (compatible with installed Chrome)
 
-### 🔧 Install Dependencies
-
-Create a virtual environment (optional but recommended):
-
-```bash
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-```
-
-Then install required packages:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🧪 Usage
+---
 
-Simply run the script:
+## Usage
+
+Run the script:
 
 ```bash
 python src/app.py
 ```
 
-✅ The script will:
-- Launch a headless browser
-- Generate CSRF token using PHPSESSID
-- Fetch and store currency/gold data in `data/`
-
-## 📁 Output
-
-- `data/fiat.json`: Fiat currency rates (e.g., USD, EUR, etc.)
-- `data/gold.json`: Gold and coin rates in Iran
-
-## 🛡️ Disclaimer
-
-This project is for **educational and personal use only**.  
-Please respect the [terms of service](https://www.navasan.net) of the target website.
+The script will:
+- Start a headless browser session
+- Generate required authentication tokens
+- Fetch and store the latest data in the `data/` directory
 
 ---
 
-🔗 **Made with ❤️ for automation and data collection**
+## Output
+
+- `fiat.json`: Fiat currency exchange rates  
+- `gold.json`: Gold and coin prices (Iran market)
+
+---
+
+## Disclaimer
+
+**Made with ❤️ for automation and data collection**
+Please review and respect the terms of service of the data source.
