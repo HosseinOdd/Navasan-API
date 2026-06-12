@@ -8,7 +8,7 @@ The project uses **Selenium** and **HTTP requests** to securely retrieve data an
 
 ## Automated Updates
 
-Data is refreshed **every 10 minutes** using GitHub Actions, without requiring any paid service.
+Data is refreshed **every 30 minutes** using GitHub Actions, without requiring any paid service.
 
 **Live JSON data:**
 - Fiat currencies: [`data/fiat.json`](./data/fiat.json)
