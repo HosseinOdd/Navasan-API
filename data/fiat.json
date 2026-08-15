@@ -482,8 +482,8 @@
   "krw": {
     "value": 132.02,
     "date": 1786812034,
-    "change_val": 0.01,
-    "change_pct": 0.01
+    "change_val": 0,
+    "change_pct": 0
   },
   "kwd": {
     "value": 605810,
@@ -956,8 +956,8 @@
   "xag": {
     "value": 12098860,
     "date": 1786812034,
-    "change_val": -3130,
-    "change_pct": -0.03
+    "change_val": 0,
+    "change_pct": 0
   },
   "xau": {
     "value": 816593890,
@@ -1027,7 +1027,7 @@
   },
   "aed": {
     "value": 51400,
-    "date": 1786812005,
+    "date": 1786813206,
     "change_val": 0,
     "change_pct": 0
   }
