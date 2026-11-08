@@ -32,12 +32,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-          install-chromedriver: true
-
       - name: Run data scraper
         run: python src/app.py
 
@@ -50,6 +44,6 @@ jobs:
             echo "No changes"
             exit 0
           fi
-          git commit -m "Auto-update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git commit -m "chore(data): auto-update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase
           git push
