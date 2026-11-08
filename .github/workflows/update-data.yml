@@ -5,45 +5,51 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 10
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-      
+
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
+        uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
-      
+          install-chromedriver: true
+
       - name: Run data scraper
         run: python src/app.py
-      
-      - name: Check for changes
-        id: git-check
-        run: |
-          git diff --exit-code data/ || echo "changed=true" >> $GITHUB_OUTPUT
-      
+
       - name: Commit and push if changed
-        if: steps.git-check.outputs.changed == 'true'
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git add data/
-          git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Auto-update: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git pull --rebase
           git push
